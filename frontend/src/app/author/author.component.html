@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <tr>
+      <th> Name</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor=" let group of authors">
+      <td data-column=" Name">{{group.name}}/td>
+      <td data-column="Description">{{group.description}}</td>
+
+    </tr>
+
+  </tbody>
+</table>

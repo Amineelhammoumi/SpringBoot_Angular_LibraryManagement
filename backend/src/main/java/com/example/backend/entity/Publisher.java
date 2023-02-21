@@ -1,0 +1,31 @@
+package com.example.backend.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.*;
+
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "publishers")
+public class Publisher {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(name = "name", length = 100, nullable = false, unique = true)
+	private String name;
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "publishers")
+	private Set<Book> books ;
+
+
+
+}
